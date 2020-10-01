@@ -4,20 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class Party_gra_84 implements PlateType1 {
+public class Party_gra_84 extends Parent_gra_84 implements PlateGarden {
 	public int personNumber = 0;
 	public int noOfplates = 0;
-	public int totalCount;
-	
-
-
-
+	public int totalCount =0;
 	public String typePlate;
-	public int price = 100;
-	public String firstName;
-	public String lastName;
+	public int price = 0;
+	public int priceB = 0;
+
 	public Date functiondate;
-	public String email;
+	
 	public String partyType;
 	public double totalCost;
 	public int noOfPerson;
@@ -28,24 +24,7 @@ public class Party_gra_84 implements PlateType1 {
 		//default constructor 
 
 		}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	
-	
-	public String getEmail() {
-		return email;
-	}
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	public Date getFunctiondate() {
 		return functiondate;
@@ -53,12 +32,14 @@ public class Party_gra_84 implements PlateType1 {
 	public void setFunctiondate(Date functiondate) {
 		this.functiondate = functiondate;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 	
 
 	public String getPartyType() {
+
+			
+			
+		
 		return partyType;
 	}
 	public void setPartyType(String partyType) {
@@ -75,14 +56,9 @@ public class Party_gra_84 implements PlateType1 {
 
 	public void setNoOfplates(int noOfplates) {
 	
-		if(this.personNumber <= noOfplates) 
-		{
+	
 			this.noOfplates = noOfplates;
-		}
-		else 
-		{
-				 noOfplates = this.personNumber;
-			 }
+		
 	}
 
 	public String getTypePlate() {
@@ -98,29 +74,51 @@ public class Party_gra_84 implements PlateType1 {
 	}
 	
 	public int getNoOfplates() {
-		return noOfplates;
+		if(this.personNumber <= this.noOfplates) 
+		{
+			return noOfplates;
+		}
+		else 
+		{
+				 this.noOfplates = this.personNumber;
+				 return noOfplates;
+			 }
+		
 	}
 	public void count() {
 		
 	}	
-	public int getTotalCount() {
-//		if(typePlate.equalsIgnoreCase(BG)) {
-//			price = BP;
-//		}
-//	else if(typePlate.equalsIgnoreCase(MG)) {
-//		price = MP;
-//	}
-//		else if(typePlate.equalsIgnoreCase(SG)) {
-//			price = SP;
-//		}
-//			else if(typePlate.equalsIgnoreCase(SHG)) {
-//				price = SHP;
-//			}
-//	
-//		
-		return totalCount = price*noOfplates;
+	public int getTotalCount() 
+	{
+		if (typePlate.matches(BG)) {
+			price = BP;
+		} else if (typePlate.matches(MG)) {
+			price = MP;
+		} else if (typePlate.matches(SG)) {
+			price = SP;
+		} else if (typePlate.matches(SHG)) {
+			price = SHP;
+		}
+		return totalCount = price*noOfplates +placeTotalCount();
 	}
-	
+	public int placeTotalCount() {
+		if (partyType.matches(BIG)) {
+			priceB = BPP;
+		} else if (partyType.matches(MIG)) {
+			priceB = MPP;
+		} else if (partyType.matches(SIG)) {
+			priceB = SPP;
+		} else if (partyType.matches(SHIG)) {
+			priceB = SHPP;
+		} else if (partyType.matches(MMG)) {
+			priceB = MPPP;
+		} else if (partyType.matches(SSG)) {
+			priceB = SPPP;
+		} else if (partyType.matches(SHHG)) {
+			priceB = SHPPP;
+		}
+		return priceB;
+	}
 
 
 

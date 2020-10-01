@@ -14,23 +14,24 @@ import com.csis3275.model_gra_84.Party_gra_84;
 @RequestMapping("/party")
 
 public class PartyController_gra_84 {
-
+	
 	@RequestMapping(method = RequestMethod.GET )
 	public String newProfileCostumer(ModelMap model) {
 		Party_gra_84 party = new Party_gra_84();
 		model.addAttribute("party", party);
 		return "party";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public String saveProfile(Party_gra_84 party, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
 			return "party";
 		}
-		model.addAttribute("success", "Dear " + party.getFirstName() + " "+party.getTotalCount()+" , your registration done successfully");
+		model.addAttribute("success", "Dear " + party.getFirstName() +" , your registration done successfully");
 		model.addAttribute("party", party);
 		return "success";
 	}
+	
 //	@RequestMapping(method = RequestMethod.POST)
 //	public String saveProfileclaculation(Party_gra_84 party, BindingResult result, ModelMap model) {
 //		
