@@ -13,50 +13,50 @@
 		<table>
 			<tr>
 				<td><label>Host First Name</label></td>
-				<td><form:input type="text" path="firstName" id="firstName" />
+				<td><form:input type="text" path="firstName" id="firstName" value = "Gaurav"/>
 					<%--  <form:errors path="firstName" style="color:red" /></td>--%>
 			</tr>
 			<tr>
 				<td><label>Last Name</label></td>
-				<td><form:input type="text" path="lastName" id="lastName" /> <form:errors
+				<td><form:input type="text" path="lastName" id="lastName" value = "Rana"/> <form:errors
 						path="lastName" style="color:red" /></td>
 			</tr>
 			<tr>
 				<td><label>Number Of Persons </label></td>
 				<td><form name="personNumber">
-						<input type="range" name="personNumber" id="personNumber" path="personNumber" value="5"
+						<input type="range" name="personNumber" id="personNumber" path="personNumber" value="10"
 							min="1" max="100" oninput="personNumberOut.value = personNumber.value">
 						<output name="personNumberOut" id="personNumberOut">5</output>
 					</form></td>
 			</tr>
 			<tr>
 				<td><label>Date of Party</label></td>
-				<td><form:input type="date" path="functiondate" id="functiondate" /> <form:errors
+				<td><form:input type="date" path="functiondate" id="functiondate" value = "02/03/2020"/> <form:errors
 						path="functiondate" style="color:red" /></td>
 			</tr>
 				<tr>
 				<td><label>Number Of Plate</label></td>
-				<td><form:input type="range" path="noOfplates" id="noOfplates" name="noOfplates" value="5"
+				<td><form:input type="range" path="noOfplates" id="noOfplates" name="noOfplates" value="10"
 							min="1" max="100" oninput="noOfplatesOut.value = noOfplates.value"/>
 							<output name="noOfplatesOut" id="noOfplatesOut">5</output> <form:errors
 						path="noOfplates" style="color:red" /></td>
 			</tr>
 			<tr>
 				<td><label>Email</label></td>
-				<td><form:input type="email" path="email" id="email" /> <form:errors
+				<td><form:input type="email" path="email" id="email" value ="ranag2@student.douglascollege.ca"/> <form:errors
 						path="email" style="color:red" /></td>
 			</tr>
 			<tr>
 				<td><label>Party Type</label></td>
 				<td><form:select path="partyType" id="partyType">
-						<form:option value="">Select party</form:option>
+						<form:option value="Garden party">Select party</form:option>
 						<form:options items="${TypeInfo}" />
 					</form:select> <form:errors path="partyType" style="color:red" /></td>
 			</tr>
 			<tr>
 				<td><label>Plate Type</label></td>
 				<td><form:select path="typePlate" id="typePlate">
-						<form:option value="">Select Plate Size</form:option>
+						<form:option value="Big Plate">Select Plate Size</form:option>
 						<form:options items="${typeOfPlate}" />
 					</form:select> <form:errors path="typePlate" style="color:red" /></td>
 			</tr>
